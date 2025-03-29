@@ -1,5 +1,10 @@
 <?php
+ob_start();
 include("header.php");
+if (empty($_GET['data'])) {
+    header("Location: index.php");
+    exit;
+}
 ?>
 <!-- Title Bar -->
 <div class="pbmit-title-bar-wrapper" style="background-image: url(images/bg/about-01.jpg);">
@@ -32,13 +37,13 @@ include("header.php");
             <div class="col-md-8">
                 <div class="pbmit-heading-subheading">
                     <h4 class="pbmit-subtitle">Our Products</h4>
-                    <h2 class="pbmit-title">Home</h2>
+                    <h2 class="pbmit-title"><?= $_GET['data']; ?></h2>
                 </div>
             </div>
         </div>
         <div class="row">
             <?php
-                $products = Operations::getProductChecker($conn);
+                $products = Operations::getProductCate($conn);
                 if (!empty($products)) {
                     foreach ($products as $pro) {
             ?>
