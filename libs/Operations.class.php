@@ -29,6 +29,13 @@ class Operations
         $result = $conn->query($sql);
         return iterator_to_array($result);
     }
+    public static function getProductCate($conn)
+    {
+        $getData = $_GET['data'];
+        $sql = "SELECT * FROM `products` WHERE `category` = '$getData'";
+        $result = $conn->query($sql);
+        return iterator_to_array($result);
+    }
     
     public static function getCate($conn)
     {

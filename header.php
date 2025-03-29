@@ -1,3 +1,10 @@
+<?php
+    include "libs/load.php";
+
+    $conn = Database::getConnect();
+    $category = Operations::getCateChecker($conn);
+?>
+
 <!doctype html>
 <html class="no-js" lang="en">
 
@@ -122,20 +129,13 @@
                                                     <li><a href="index.php">Home</a></li>
                                                     <li><a href="about.php">About Us</a></li>
                                                     <li class="dropdown active">
-													<a href="product.php">Product</a>
-                                                <ul>													
-													<li><a href="fanblade.php">Fan Blade</a></li>
-                                                    <li><a href="elevator.php">Elevator</a></li>
-                                                    <li><a href="terminal.php">Terminal Plate</a></li>
-                                                    <li><a href="silicon.php">Silicon Carbite</a></li>
-                                                    <li><a href="conveyor.php">Conveyor Belt</a></li>
-                                                    <li><a href="bearing.php">Bearing</a></li>
-                                                    <li><a href="impellers.php">Impellers</a></li>
-                                                    <li> <a href="cooling.php">Cooling Fan</a> </li>
-                                                    <li><a href="capacitors.php">Capacitors</a></li>
-                                                    <li><a href="airfilters.php">Air Filters</a></li>
-												</ul>
-												</li>
+													    <a href="product.php">Product</a>
+                                                        <ul>
+                                                            <?php foreach ($category as $cate) { ?>												
+                                                            <li><a href="product.php?data=<?= $cate['category'] ?>"><?= $cate['category'] ?></a></li>
+                                                            <?php } ?>
+                                                        </ul>
+												    </li>
                                                     <li><a href="service.php">Services</a></li>
                                                     <li><a href="certificate.php">Certificates</a></li>
                                                     <li><a href="contact.php">Contact Us</a></li>
@@ -145,7 +145,7 @@
                                     </nav>
                                 </div>
                                 <div class="pbmit-right-box">
-                                    <a href="contact.php" class="pbmit-btn pbmit-btn-hover-secondary">
+                                    <a href="https://wa.me/919865096783" class="pbmit-btn pbmit-btn-hover-secondary">
                                         <span>Enquiry</span>
                                     </a>
                                 </div>

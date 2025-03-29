@@ -61,7 +61,7 @@
                             ?>
                             <div class="col-md-6 col-lg-4 d-flex align-items-stretch">
                                 <div class="card w-100">
-                                    <div class="p-4 d-flex align-items-stretch h-100">
+                                    <div class="p-4 h-100">
                                         <div class="row">
                                             <div class="col-8 col-md-9 d-flex align-items-center">
                                                 <div>
